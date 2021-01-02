@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for rest in restaurants %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'restaurant-detail' pk=rest.pk %}">{{ rest.name }}</a>
+			  <small class="text-muted">{{ rest.location }}</small>
+
+            </div>
+			<p class="article-content">{{ rest.intro }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

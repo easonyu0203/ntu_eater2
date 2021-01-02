@@ -9,8 +9,10 @@
 			  <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
 
             </div>
-            <h2><a class="article-title" href="{% url 'blog-detail' pk=post.id %}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+			<h2><a class="article-title" href="{% url 'blog-detail' pk=post.id %}">{{ post.title }}</a></h2>
+			<h5 >comment on: {{post.comment_on.name}}</h5>
+			<p class="article-content">{{ post.content }}</p>
+			<img src="{{post.image.url}}" alt="" class="blog-img">
           </div>
         </article>
     {% endfor %}

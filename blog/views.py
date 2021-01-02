@@ -28,7 +28,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'comment_on', 'content', 'image']
     template_name = 'blog/post_create.html'
 
     def form_valid(self, form):
@@ -38,7 +38,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'comment_on', 'content', 'image']
     template_name = 'blog/post_update.html'
 
     def form_valid(self, form):
@@ -65,7 +65,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         else:
             return False
-
-
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
